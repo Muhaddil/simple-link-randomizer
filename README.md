@@ -1,0 +1,1 @@
+This is a simple web for a GTAV RP server for a faction oposition links randomizer. The app collects no data. Nothing is sent over the internet, and the only data that is saved to your local drive is your currently asigned link. Everything you do here stays on your local computer. 
