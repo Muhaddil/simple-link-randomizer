@@ -1,4 +1,5 @@
 body {
+  position: relative; 
   background-color: #000;
   color: #000000;
   display: flex;
@@ -31,6 +32,9 @@ h1 {
   margin: 20px;
   text-align: center;
   display: none;
+  height: auto;
+  overflow: auto; /* Añade scroll si el contenido se sale del contenedor */
+  max-width: 100%; /* Asegura que el ancho no sea mayor que el de su contenedor */
 }
 
 button {
@@ -54,6 +58,23 @@ img {
   height: auto;
 }
 
+#tooltipCentral {
+  visibility: hidden;
+  width: auto;
+  background-color: #555;
+  color: #fff;
+  text-align: justify;
+  padding: 20px;
+  border-radius: 6px;
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
 #textoIzquierdo,
 #textoDerecho {
   position: fixed;
@@ -72,4 +93,51 @@ img {
   right: 0;
   bottom: 0;
   transform: translateX(100%);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px; 
+  background-color: #555;
+  color: #fff;
+  padding: 20px; 
+  border-radius: 6px;
+  position: absolute; 
+  z-index: 2; 
+  top: 50%; 
+  left: 50%; 
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: justify;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+  color: red;
+}
+
+.closebtn:hover {
+  transform: scale(2.2);
+}
+
+/* Añade un fondo difuminado cuando se muestra la ventana emergente */
+body.tooltip-active {
+  overflow: hidden;
+}
+
+body.tooltip-active:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }

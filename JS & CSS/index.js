@@ -5,8 +5,13 @@ window.onload = function () {
   if (lastCardIndex === null) {
     // If it is the user's first visit, show a random card
     lastCardIndex = Math.floor(Math.random() * cards.length);
-    localStorage.setItem("lastCard", lastCardIndex);
+  } else {
+    // Convert the retrieved index back to a number
+    lastCardIndex = Number(lastCardIndex);
   }
+
+  // Save the index back to localStorage
+  localStorage.setItem("lastCard", lastCardIndex);
 
   // Show the selected card
   cards[lastCardIndex].style.display = "block";
@@ -46,25 +51,80 @@ document.body.addEventListener("mousemove", function (e) {
   changeGradient(x);
 });
 
-document.body.addEventListener("mousemove", function (e) {
-    const x = e.clientX / window.innerWidth;
-    const textoIzquierdo = document.getElementById("textoIzquierdo");
-    const textoDerecho = document.getElementById("textoDerecho");
-    if (x < 0.45) {
-      textoIzquierdo.style.opacity = "1";
-      textoIzquierdo.style.transform = "translateX(0)";
-      textoDerecho.style.opacity = "0";
-      textoDerecho.style.transform = "translateX(100%)";
-    } else if (x > 0.55) {
-      textoIzquierdo.style.opacity = "0";
-      textoIzquierdo.style.transform = "translateX(-100%)";
-      textoDerecho.style.opacity = "1";
-      textoDerecho.style.transform = "translateX(0)";
-    } else {
-      textoIzquierdo.style.opacity = "0";
-      textoIzquierdo.style.transform = "translateX(-100%)";
-      textoDerecho.style.opacity = "0";
-      textoDerecho.style.transform = "translateX(100%)";
-    }
+// Función para mostrar el tooltip
+function mostrarTooltip(tooltiptext) {
+  const tooltipCentral = document.getElementById('tooltipCentral');
+  tooltipCentral.innerHTML = tooltiptext.innerHTML;
+  tooltipCentral.style.visibility = 'visible';
+  tooltipCentral.style.opacity = 1;
+
+  // Agrega los eventos de cierre aquí
+  Array.from(tooltipCentral.getElementsByClassName('closebtn')).forEach(function(element) {
+    element.addEventListener('click', function(event) {
+      event.stopPropagation();
+      ocultarTooltip();
+    });
   });
-  
+
+  // Añade la clase tooltip-active al cuerpo del documento
+  document.body.classList.add('tooltip-active');
+}
+
+// Función para ocultar el tooltip
+function ocultarTooltip() {
+  const tooltipCentral = document.getElementById('tooltipCentral');
+  tooltipCentral.style.visibility = 'hidden';
+  tooltipCentral.style.opacity = 0;
+
+  // Quita la clase tooltip-active del cuerpo del documento
+  document.body.classList.remove('tooltip-active');
+}
+
+document.body.addEventListener("mousemove", function (e) {
+  const x = e.clientX / window.innerWidth;
+  const textoIzquierdo = document.getElementById("textoIzquierdo");
+  const textoDerecho = document.getElementById("textoDerecho");
+  if (x < 0.45) {
+    textoIzquierdo.style.opacity = "1";
+    textoIzquierdo.style.transform = "translateX(0)";
+    textoDerecho.style.opacity = "0";
+    textoDerecho.style.transform = "translateX(100%)";
+  } else if (x > 0.55) {
+    textoIzquierdo.style.opacity = "0";
+    textoIzquierdo.style.transform = "translateX(-100%)";
+    textoDerecho.style.opacity = "1";
+    textoDerecho.style.transform = "translateX(0)";
+  } else {
+    textoIzquierdo.style.opacity = "0";
+    textoIzquierdo.style.transform = "translateX(-100%)";
+    textoDerecho.style.opacity = "0";
+    textoDerecho.style.transform = "translateX(100%)";
+  }
+});
+
+// Eventos del click para el texto izquierdo
+document.getElementById('textoIzquierdo').addEventListener('click', function(event) {
+  const tooltiptext = this.querySelector('.tooltiptext');
+  if (tooltiptext.style.visibility !== 'visible') {
+    mostrarTooltip(tooltiptext);
+  } else {
+    ocultarTooltip();
+  }
+});
+
+// Eventos del click para el texto derecho
+document.getElementById('textoDerecho').addEventListener('click', function(event) {
+  const tooltiptext = this.querySelector('.tooltiptext');
+  if (tooltiptext.style.visibility !== 'visible') {
+    mostrarTooltip(tooltiptext);
+  } else {
+    ocultarTooltip();
+  }
+});
+
+// Añade un z-index a los elementos con los que deseas interactuar
+document.getElementById('textoIzquierdo').style.zIndex = 3;
+document.getElementById('textoDerecho').style.zIndex = 3;
+Array.from(document.getElementsByClassName('closebtn')).forEach(function(element) {
+  element.style.zIndex = 10;
+});
