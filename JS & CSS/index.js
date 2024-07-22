@@ -3,52 +3,44 @@ window.onload = function () {
   let lastCardIndex = localStorage.getItem("lastCard");
 
   if (lastCardIndex === null) {
-    // If it is the user's first visit, show a random card
-    lastCardIndex = Math.floor(Math.random() * cards.length);
+      lastCardIndex = Math.floor(Math.random() * cards.length);
   } else {
-    // Convert the retrieved index back to a number
-    lastCardIndex = Number(lastCardIndex);
+      lastCardIndex = Number(lastCardIndex);
   }
 
-  // Save the index back to localStorage
   localStorage.setItem("lastCard", lastCardIndex);
-
-  // Show the selected card
   cards[lastCardIndex].style.display = "block";
+
+  const formSection = document.getElementById('form-section');
+  formSection.style.display = 'none';
 };
 
-// Constants
-const GRADIENT_ANGLE = 150;
-const COLOR_START = "#0055ff";
-const COLOR_END = "#FF0000";
-const INITIAL_PERCENTAGE = 50;
-const MOUSEMOVE_FACTOR = 40;
-const MIN_PERCENTAGE = 30;
-const MAX_PERCENTAGE = 70;
-
-// Function to change the gradient
-function changeGradient(x) {
-  const bgWebKit = `linear-gradient(${GRADIENT_ANGLE}deg, ${COLOR_START} ${x}%, ${COLOR_END} ${
-    x + 10
-  }%)`;
-  const bgMoz = `linear-gradient(${GRADIENT_ANGLE}deg, ${COLOR_START} ${x}%, ${COLOR_END} ${
-    x + 10
-  }%)`;
-  document.body.style.backgroundImage = bgWebKit;
-  document.body.style.backgroundImage = bgMoz;
-}
-
-// Changes the gradient on page load
-document.addEventListener("DOMContentLoaded", function () {
-  changeGradient(INITIAL_PERCENTAGE);
+// Cambiar tema
+document.getElementById('theme-toggle').addEventListener('click', function () {
+  const body = document.body;
+  const isLight = body.classList.contains('light-theme');
+  body.classList.toggle('light-theme', !isLight);
+  body.classList.toggle('dark-theme', isLight);
+  this.textContent = isLight ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
 });
 
-// Changes the gradient with mouse movement
-document.body.addEventListener("mousemove", function (e) {
-  let x = (e.clientX / window.innerWidth - 0.5) * MOUSEMOVE_FACTOR; // Mouse position on the X axis
-  x = 50 - x; // Adjusts the center of the gradient
-  x = Math.min(Math.max(x, MIN_PERCENTAGE), MAX_PERCENTAGE); // Limits x to a range of 30 to 70
-  changeGradient(x);
+// Mostrar/ocultar sección de formulario al hacer clic en el botón "Opositar"
+document.getElementById('opositar-button').addEventListener('click', function (event) {
+  const oposicionesAbiertas = true; 
+  const opositarLink = document.getElementById('opositar-link');
+
+  if (!oposicionesAbiertas) {
+    event.preventDefault(); 
+    opositarLink.click(); 
+  } else {
+    const formSection = document.getElementById('form-section');
+    formSection.style.display = formSection.style.display === 'none' ? 'block' : 'none';
+    if (formSection.style.display === 'block') {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    const isHidden = formSection.style.display === 'none';
+    this.setAttribute('aria-expanded', !isHidden);
+  }
 });
 
 // Función para mostrar el tooltip
@@ -58,15 +50,13 @@ function mostrarTooltip(tooltiptext) {
   tooltipCentral.style.visibility = 'visible';
   tooltipCentral.style.opacity = 1;
 
-  // Agrega los eventos de cierre aquí
-  Array.from(tooltipCentral.getElementsByClassName('closebtn')).forEach(function(element) {
-    element.addEventListener('click', function(event) {
-      event.stopPropagation();
-      ocultarTooltip();
-    });
+  Array.from(tooltipCentral.getElementsByClassName('closebtn')).forEach(function (element) {
+      element.addEventListener('click', function (event) {
+          event.stopPropagation();
+          ocultarTooltip();
+      });
   });
 
-  // Añade la clase tooltip-active al cuerpo del documento
   document.body.classList.add('tooltip-active');
 }
 
@@ -75,8 +65,6 @@ function ocultarTooltip() {
   const tooltipCentral = document.getElementById('tooltipCentral');
   tooltipCentral.style.visibility = 'hidden';
   tooltipCentral.style.opacity = 0;
-
-  // Quita la clase tooltip-active del cuerpo del documento
   document.body.classList.remove('tooltip-active');
 }
 
@@ -85,46 +73,87 @@ document.body.addEventListener("mousemove", function (e) {
   const textoIzquierdo = document.getElementById("textoIzquierdo");
   const textoDerecho = document.getElementById("textoDerecho");
   if (x < 0.45) {
-    textoIzquierdo.style.opacity = "1";
-    textoIzquierdo.style.transform = "translateX(0)";
-    textoDerecho.style.opacity = "0";
-    textoDerecho.style.transform = "translateX(100%)";
+      textoIzquierdo.style.opacity = "1";
+      textoIzquierdo.style.transform = "translateX(0)";
+      textoDerecho.style.opacity = "0";
+      textoDerecho.style.transform = "translateX(100%)";
   } else if (x > 0.55) {
-    textoIzquierdo.style.opacity = "0";
-    textoIzquierdo.style.transform = "translateX(-100%)";
-    textoDerecho.style.opacity = "1";
-    textoDerecho.style.transform = "translateX(0)";
+      textoIzquierdo.style.opacity = "0";
+      textoIzquierdo.style.transform = "translateX(-100%)";
+      textoDerecho.style.opacity = "1";
+      textoDerecho.style.transform = "translateX(0)";
   } else {
-    textoIzquierdo.style.opacity = "0";
-    textoIzquierdo.style.transform = "translateX(-100%)";
-    textoDerecho.style.opacity = "0";
-    textoDerecho.style.transform = "translateX(100%)";
+      textoIzquierdo.style.opacity = "0";
+      textoIzquierdo.style.transform = "translateX(-100%)";
+      textoDerecho.style.opacity = "0";
+      textoDerecho.style.transform = "translateX(100%)";
   }
 });
 
 // Eventos del click para el texto izquierdo
-document.getElementById('textoIzquierdo').addEventListener('click', function(event) {
+document.getElementById('textoIzquierdo').addEventListener('click', function (event) {
   const tooltiptext = this.querySelector('.tooltiptext');
   if (tooltiptext.style.visibility !== 'visible') {
-    mostrarTooltip(tooltiptext);
+      mostrarTooltip(tooltiptext);
   } else {
-    ocultarTooltip();
+      ocultarTooltip();
   }
 });
 
 // Eventos del click para el texto derecho
-document.getElementById('textoDerecho').addEventListener('click', function(event) {
+document.getElementById('textoDerecho').addEventListener('click', function (event) {
   const tooltiptext = this.querySelector('.tooltiptext');
   if (tooltiptext.style.visibility !== 'visible') {
-    mostrarTooltip(tooltiptext);
+      mostrarTooltip(tooltiptext);
   } else {
-    ocultarTooltip();
+      ocultarTooltip();
   }
 });
 
-// Añade un z-index a los elementos con los que deseas interactuar
 document.getElementById('textoIzquierdo').style.zIndex = 3;
 document.getElementById('textoDerecho').style.zIndex = 3;
-Array.from(document.getElementsByClassName('closebtn')).forEach(function(element) {
+Array.from(document.getElementsByClassName('closebtn')).forEach(function (element) {
   element.style.zIndex = 10;
 });
+
+
+const images = [
+  document.getElementById("bg1"),
+  document.getElementById("bg2"),
+  document.getElementById("bg3"),
+  document.getElementById("bg4"),
+  document.getElementById("bg5"),
+  document.getElementById("bg6"),
+  document.getElementById("bg7"),
+];
+
+let shuffledIndices = shuffleArray([...Array(images.length).keys()]);
+let currentImageIndex = 0;
+let nextImageIndex = 1;
+
+function changeBackgroundImage() {
+  images[shuffledIndices[currentImageIndex]].style.transition =
+    "opacity 1s ease, transform 1s ease";
+  images[shuffledIndices[currentImageIndex]].style.opacity = "0";
+  images[shuffledIndices[currentImageIndex]].style.transform = "scale(1)";
+
+  images[shuffledIndices[nextImageIndex]].style.transition =
+    "opacity 1s ease, transform 10s ease";
+  images[shuffledIndices[nextImageIndex]].style.opacity = "1";
+  images[shuffledIndices[nextImageIndex]].style.transform = "scale(1.1)";
+
+  // Update indices
+  currentImageIndex = nextImageIndex;
+  nextImageIndex = (nextImageIndex + 1) % images.length;
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+setInterval(changeBackgroundImage, 5000); 
+changeBackgroundImage();

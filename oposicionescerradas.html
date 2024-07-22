@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oposiciones Cerradas</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #111;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+      }
+      .content {
+        text-align: center;
+        max-width: 600px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        z-index: 1;
+      }
+      .message {
+        font-size: 2em;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 1;
+      }
+      .logo {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        max-width: 15%;
+        height: auto;
+        z-index: 1;
+      }
+      .background-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .background-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 1s ease, transform 10s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="logo-link" href="https://discord.gg/rRzRkRY8UQ">
+      <img
+        class="logo"
+        src="https://static.wikia.nocookie.net/simlife-roleplay/images/9/94/SAMSlogowebsite.webp"
+        alt="Logo"
+      />
+    </a>
+    <div class="content">
+      <h1>Oposiciones Cerradas</h1>
+      <p>Las oposiciones al SAMS están cerradas hasta nuevo aviso.</p>
+    </div>
+    <div class="background-container">
+      <div
+        id="bg1"
+        class="background-image"
+        style="
+          background-image: url('images/image1.png');
+          opacity: 1;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg2"
+        class="background-image"
+        style="
+          background-image: url('images/image2.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg3"
+        class="background-image"
+        style="
+          background-image: url('images/image3.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg4"
+        class="background-image"
+        style="
+          background-image: url('images/image4.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg5"
+        class="background-image"
+        style="
+          background-image: url('images/image5.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg6"
+        class="background-image"
+        style="
+          background-image: url('images/image6.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+        id="bg7"
+        class="background-image"
+        style="
+          background-image: url('images/image7.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+    </div>
+    <script>
+      const images = [
+        document.getElementById("bg1"),
+        document.getElementById("bg2"),
+        document.getElementById("bg3"),
+        document.getElementById("bg4"),
+        document.getElementById("bg5"),
+        document.getElementById("bg6"),
+        document.getElementById("bg7"),
+      ];
+
+      let shuffledIndices = shuffleArray([...Array(images.length).keys()]);
+      let currentImageIndex = 0;
+      let nextImageIndex = 1;
+
+      function changeBackgroundImage() {
+        images[shuffledIndices[currentImageIndex]].style.transition =
+          "opacity 1s ease, transform 1s ease";
+        images[shuffledIndices[currentImageIndex]].style.opacity = "0";
+        images[shuffledIndices[currentImageIndex]].style.transform = "scale(1)";
+
+        images[shuffledIndices[nextImageIndex]].style.transition =
+          "opacity 1s ease, transform 10s ease";
+        images[shuffledIndices[nextImageIndex]].style.opacity = "1";
+        images[shuffledIndices[nextImageIndex]].style.transform = "scale(1.1)";
+
+        // Update indices
+        currentImageIndex = nextImageIndex;
+        nextImageIndex = (nextImageIndex + 1) % images.length;
+      }
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      setInterval(changeBackgroundImage, 5000);
+      changeBackgroundImage();
+    </script>
+  </body>
+</html>

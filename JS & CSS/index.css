@@ -1,63 +1,132 @@
+/* Estilos generales */
 body {
-  position: relative; 
-  background-color: #000;
-  color: #000000;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light-theme {
+  background: #f4f4f4;
+  color: #333;
+}
+
+.dark-theme {
+  background: #333;
+  color: #f4f4f4;
+}
+
+/* Estilos del encabezado */
+.header {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+  color: white;
+  height: 300px;
+}
+
+.light-theme .header {
+  background: #ffffff;
+  color: #333;
+}
+
+.dark-theme .header {
+  background: #444;
+  color: #f4f4f4;
+}
+
+.logo-link {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.logo-img {
+  width: 200px;
+}
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #0056b3;
+}
+
+/* Secciones de información */
+.info-section,
+.scroll-section,
+.form-section {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos para las tarjetas de formulario */
+#form-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.logo-link {
-  position: relative;
-  width: calc(20%);
-}
-
-.logo-img {
-  max-width: 100%;
-  height: auto;
-  width: calc(120%);
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 50px;
 }
 
 .card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 20px;
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto;
   text-align: center;
-  display: none;
-  height: auto;
-  overflow: auto; /* Añade scroll si el contenido se sale del contenedor */
-  max-width: 100%; /* Asegura que el ancho no sea mayor que el de su contenedor */
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.opositar-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: #28a745;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.opositar-button:hover {
+  background: #218838;
 }
 
 button {
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
   color: #fff;
-  background-color: #000;
-  border: 1px solid #fff;
-  padding: 20px 40px;
-  font-size: 20px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  color: #ddd;
-  transform: scale(1.2);
-  background-color: #555;
+  background: #0056b3;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
+/* Estilos para tooltips */
 #tooltipCentral {
   visibility: hidden;
   width: auto;
@@ -126,18 +195,63 @@ img {
   transform: scale(2.2);
 }
 
-/* Añade un fondo difuminado cuando se muestra la ventana emergente */
-body.tooltip-active {
+/* Estilos para el fondo animado */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
 }
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease, transform 10s ease;
+}
 
-body.tooltip-active:before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* Capa blanca semitransparente */
+  z-index: 1; /* Asegura que la superposición esté sobre las imágenes de fondo */
+}
+
+.header-content {
+  position: relative;
+  z-index: 2; 
+  padding: 20px;
+}
+
+/* Animaciones */
+.animate__animated {
+  animation-duration: 1.5s;
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate__fadeInDown {
+  animation-name: fadeInDown;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.animate__fadeInUp:hover {
+  transform: translateY(-5px);
+}
+
+.animate__fadeInDown,
+.animate__fadeInUp {
+  animation-duration: 1s;
 }
