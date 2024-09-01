@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Formulario Oposiciones SAMS</title>
+    <title>San Andreas Emergency Department</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -11,94 +11,105 @@
 </head>
 
 <body class="light-theme">
-    <header class="header animate__animated animate__fadeInDown">
-        <div class="background-container">
-            <div
-              id="bg1"
-              class="background-image"
-              style="
-                background-image: url('images/image1.png');
-                opacity: 1;
-                transform: scale(1);
-              "
-            ></div>
-            <div
-              id="bg2"
-              class="background-image"
-              style="
-                background-image: url('images/image2.png');
-                opacity: 0;
-                transform: scale(1);
-              "
-            ></div>
-            <div
-              id="bg3"
-              class="background-image"
-              style="
-                background-image: url('images/image3.png');
-                opacity: 0;
-                transform: scale(1);
-              "
-            ></div>
-            <div
-            id="bg4"
-            class="background-image"
-            style="
-              background-image: url('images/image4.png');
-              opacity: 0;
-              transform: scale(1);
-            "
-          ></div>
-          <div
-          id="bg5"
-          class="background-image"
-          style="
-            background-image: url('images/image5.png');
+  <header class="header animate__animated animate__fadeInDown">
+    <div class="background-container">
+      <div id="bg1" class="background-image" style="
+            background-image: url('images/image1.png');
+            opacity: 1;
+            transform: scale(1);
+          "></div>
+      <div id="bg2" class="background-image" style="
+            background-image: url('images/image2.png');
             opacity: 0;
             transform: scale(1);
-          "
-        ></div>
-        <div
-        id="bg6"
-        class="background-image"
-        style="
-          background-image: url('images/image6.png');
+          "></div>
+      <div id="bg3" class="background-image" style="
+            background-image: url('images/image3.png');
+            opacity: 0;
+            transform: scale(1);
+          "></div>
+      <div id="bg4" class="background-image" style="
+          background-image: url('images/image4.png');
           opacity: 0;
           transform: scale(1);
-        "
-      ></div>
-      <div
-      id="bg7"
-      class="background-image"
-      style="
-        background-image: url('images/image7.png');
+        "></div>
+      <div id="bg5" class="background-image" style="
+        background-image: url('images/image5.png');
         opacity: 0;
         transform: scale(1);
-      "
-    ></div>
-        <div class="overlay"></div>
-        <div class="header-content">
-            <a class="logo-link" href="https://discord.gg/rRzRkRY8UQ">
-                <img class="logo-img" src="https://static.wikia.nocookie.net/simlife-roleplay/images/9/94/SAMSlogowebsite.webp" alt="Logo">
-            </a>
-            <h1>San Andreas Medical Services</h1>
-            <button id="theme-toggle" class="theme-toggle">Cambiar a modo oscuro</button>
+      "></div>
+      <div id="bg6" class="background-image" style="
+      background-image: url('images/image6.png');
+      opacity: 0;
+      transform: scale(1);
+    "></div>
+      <div id="bg7" class="background-image" style="
+    background-image: url('images/image7.png');
+    opacity: 0;
+    transform: scale(1);
+  "></div>
+      <div class="overlay"></div>
+      <div class="header-content">
+        <a class="logo-link" href="https://discord.gg/rRzRkRY8UQ">
+          <img class="logo-img" src="images/SAEDLogo.png" alt="Logo">
+        </a>
+        <h1>San Andreas Emergency Department</h1>
+        <div class="button-group">
+          <button id="theme-toggle" class="theme-toggle" data-lang="es">Cambiar a modo oscuro</button>
+          <button id="theme-toggle-en" class="theme-toggle" data-lang="en" style="display: none;">Switch to Dark Mode</button>
+          <button id="language-toggle" class="language-toggle">English</button>
         </div>
-    </header>
+      </div>
+  </header>
 
     <section id="info-section" class="info-section animate__animated animate__fadeIn">
-        <h2>Información sobre SAMS</h2>
-        <p>El San Andreas Medical Services, tambien conocido como SAMS, es una institución de carácter público, perteneciente al Gobierno de San Andreas, colaborando con el Condado de Los Santos, el Condado de Blaine y el Estado de San Andreas en su totalidad. Contamos con profesionales médicos, rescatistas y especialistas, de primera calidad, al igual que con instalaciones con tecnología moderna, elevando los estándares de la Salud Pública.
-          Nuestro Servicio se encuentra comprometido en el avance de la tecnología médica, el mejoramiento continuo de la labor institucional y la ampliación de atención en la red de mediana-alta complejidad. Invertimos en el futuro para mejorar la calidad del presente, colaborando con otras instituciones y motivando a la autonomía financiera para lograr un sustento eficaz e independiente.
-          Estamos comprometidos con nuestra vocación por el servicio público, y la atención a los ciudadanos del Estado de San Andreas.</p>
-    </section>
+      <h2 data-lang="es">Información sobre SAED</h2>
+      <h2 data-lang="en" style="display: none;">Information about SAED</h2>
+      
+      <p data-lang="es">El San Andreas Emergency Department (SAED) es una institución pública del Gobierno de San Andreas que supervisa dos divisiones principales: 
+           San Andreas Medical Services (SAMS) y San Andreas Fire Department (SAFD). Juntos, brindamos atención médica avanzada y servicios de respuesta 
+           a emergencias en todo el Estado de San Andreas, colaborando estrechamente con los condados de Los Santos y Blaine. Nuestros equipos están compuestos 
+           por profesionales altamente capacitados en medicina, rescate, y extinción de incendios, asegurando que la seguridad y el bienestar de nuestros ciudadanos 
+           estén siempre protegidos.</p>
 
-    <section class="scroll-section">
-        <a id="opositar-link" href="/oposicionescerradas.html" style="display: none;">Oposiciones cerradas</a>
-        <button id="opositar-button">Opositar</button>
+      <p data-lang="en" style="display: none;">
+            The San Andreas Emergency Department (SAED) is a public agency of the Government of San Andreas that oversees two main divisions: San Andreas Medical Services (SAMS) and San Andreas Fire Department (SAFD). Together, we provide advanced medical care and emergency response services throughout the State of San Andreas, working closely with Los Santos and Blaine Counties. Our teams are comprised of highly trained medical, rescue, and firefighting professionals, ensuring that the safety and well-being of our citizens is always protected.</p>
     </section>
 
     <section id="form-section" class="form-section">
+      <div class="card animate__animated animate__fadeInUp">
+          <img src="images/SAMSLogo.png" alt="Logo SAMS" class="faction-logo">
+          
+          <h3 data-lang="es">SAMS</h3>
+          <h3 data-lang="en" style="display: none;">SAMS</h3>
+          
+          <p data-lang="es">San Andreas Medical Services</p>
+          <p data-lang="en" style="display: none;">San Andreas Medical Services</p>
+          
+          <button data-lang="es" onclick="window.location.href='sams.html'">Ir a SAMS</button>
+          <button data-lang="en" onclick="window.location.href='sams.html'" style="display: none;">Go to SAMS</button>
+      </div>
+      
+      <div class="card animate__animated animate__fadeInUp">
+          <img src="images/SAFD.png" alt="Logo SAFD" class="faction-logo">
+          
+          <h3 data-lang="es">SAFD</h3>
+          <h3 data-lang="en" style="display: none;">SAFD</h3>
+          
+          <p data-lang="es">San Andreas Fire Department</p>
+          <p data-lang="en" style="display: none;">San Andreas Fire Department</p>
+          
+          <button data-lang="es" onclick="window.location.href='oposicionescerradasSAFD.html'">Ir a SAFD</button>
+          <button data-lang="en" onclick="window.location.href='oposicionescerradasSAFD.html'" style="display: none;">Go to SAFD</button>
+          <!-- 
+          <button data-lang="es" onclick="window.location.href='safd.html'">Ir a SAFD</button>
+          <button data-lang="en" onclick="window.location.href='safd.html'" style="display: none;">Go to SAFD</button>
+          -->
+      </div>
+    </section>
+        
+
+    <!-- <section id="form-section" class="form-section">
         <h2>El formulario que le toca a usted es:</h2>
         <div class="card animate__animated animate__fadeInUp" style="display:none;">
             <button style="display: block; margin: 0 auto;" onclick="window.location.href='https://forms.gle/dbwHAK8FN9pmiysU6'">Formulario 1</button>
@@ -109,76 +120,76 @@
         <div class="card animate__animated animate__fadeInUp" style="display:none;">
             <button style="display: block; margin: 0 auto;" onclick="window.location.href='https://forms.gle/Rkwak3wQeHrN8UVW7'">Formulario 3</button>
         </div>
-    </section>    
+    </section>     -->
 
     <section class="tooltip-section">
-        <div id="tooltipCentral" class="tooltiptext"></div>
-        <div id="textoIzquierdo" class="tooltip" tabindex="0" role="button">
-            ¡Clicame!
-            <div class="tooltiptext animate__animated animate__fadeIn">
-                <div class="tooltip-content">
-                    Juro por Apolo, médico, por Asclepio, y por Higía y Panacea, y por todos los dioses y diosas del Olimpo,
-                    tomándolos por testigos, cumplir este juramento según mi capacidad y mi conciencia: Tendré al que me
-                    enseñó este arte en la misma estimación que a mis padres, compartiré mis bienes con él y, si lo
-                    necesitara, le ayudaré con mis bienes. Consideraré a sus hijos como si fueran mis hermanos y, si desean
-                    aprender el arte médico, se lo enseñaré sin exigirles nada en pago. A mis hijos, a los hijos de mi
-                    maestro y a los que se obligaran con el juramento que manda la ley de la Medicina, y a nadie más, le
-                    enseñaré los preceptos, las lecciones y la práctica. Aplicaré mis tratamientos para beneficio de los
-                    enfermos, según mi capacidad y buen juicio, y me abstendré de hacerles daño o injusticia. A nadie,
-                    aunque me lo pidiera, daré un veneno ni a nadie le sugeriré que lo tome. Del mismo modo, nunca
-                    proporcionaré a mujer alguna un pesario abortivo. Viviré y ejerceré siempre mi arte en pureza y
-                    santidad. No practicaré la cirugía en los que sufren cáculos, antes bien dejaré esa operación a los que
-                    se dedican a ella. Siempre que entrare en una casa, lo haré para bien del enfermo. Me abstendré de toda
-                    mala acción o injusticia y, en particular, de tener relaciones eróticas con mujeres o con hombres, ya
-                    sean libres o esclavos. Guardaré silencio sobre lo que, en mi consulta o fuera de ella, vea u oiga, que
-                    se refiera a la vida de los hombres y que no deba ser divulgado. Mantendré en secreto todo lo que
-                    pudiera ser vergonzoso si lo supiera la gente. Si fuera fiel a este juramento y no lo violara, que se me
-                    conceda gozar de mi vida y de mi arte, y ser honrado para siempre entre los hombres. Si lo quebrantara y
-                    jurara en falso, que me suceda lo contrario.
-                    <span class="closebtn" tabindex="0" role="button">×</span>
-                </div>
-            </div>
-        </div>
-        <div id="textoDerecho" class="tooltip" tabindex="0" role="button">
-            ¡Aquí también!
-            <div class="tooltiptext animate__animated animate__fadeIn">
-                <div class="tooltip-content">
-                    Oh Dios, llena mi alma de amor por mi arte y por todas las criaturas. Que no admita que la sed de
-                    ganancia y el afán de gloria me influencien en el ejercicio de mi arte, porque los enemigos de la verdad
-                    y del amor de los hombres podrían fácilmente hacerme abusar y apartarme de hacer bien a tus hijos.
-    
-                    Sostén la fuerza de mi corazón para que esté siempre pronto a servir al pobre y al rico, al amigo y al
-                    enemigo, al bueno y al malo. Haz que no vea en el hombre más que al que sufre.
-    
-                    Que mi espíritu se mantenga claro en el lecho del enfermo, que no se distraiga por cualquier pensamiento
-                    extraño, para que tenga presente todo lo que la experiencia y la ciencia le enseñaron; porque grandes y
-                    sublimes son los progresos de la ciencia que tienen como finalidad conservar la salud y la vida de todas
-                    las criaturas.
-    
-                    Haz que mis pacientes tengan confianza en mí y en mi arte y que sigan mis consejos y prescripciones.
-    
-                    Aleja del lecho de mis pacientes a los charlatanes, al ejército de parientes que dan mil consejos y a
-                    aquéllos que saben siempre todo; porque es una injerencia peligrosa que, por vanidad, hace malograr las
-                    mejores intenciones y lleva muchas veces a la muerte.
-    
-                    Si los ignorantes me censuran y escarnecen, otórgame que el amor de mi arte, como una coraza, me torne
-                    invulnerable, para que pueda perseverar en la verdad sin atender al prestigio, al renombre y a la edad
-                    de mis detractores. Otórgame, Dios mío, la indulgencia y la paciencia necesaria al lado de los pacientes
-                    apasionados o groseros.
-    
-                    Haz que sea moderado en todo, pero insaciable en mi amor por la ciencia. Aparta de mí la idea de que lo
-                    puedo todo.
-    
-                    Dame la fuerza, la voluntad y la ocasión para ampliar cada vez más mis conocimientos.
-    
-                    Que pueda hay descubrir en mi saber cosas que ayer no sospechaba, porque el arte es grande, pero el
-                    espíritu del hombre puede avanzar siempre más adelante.
-    
-                    <span class="closebtn" tabindex="0" role="button">×</span>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div id="tooltipCentral" class="tooltiptext"></div>
+      <div id="textoIzquierdo" class="tooltip" tabindex="0" role="button">
+          ¡Clicame!
+          <div class="tooltiptext animate__animated animate__fadeIn">
+              <div class="tooltip-content">
+                  Juro por Apolo, médico, por Asclepio, y por Higía y Panacea, y por todos los dioses y diosas del Olimpo,
+                  tomándolos por testigos, cumplir este juramento según mi capacidad y mi conciencia: Tendré al que me
+                  enseñó este arte en la misma estimación que a mis padres, compartiré mis bienes con él y, si lo
+                  necesitara, le ayudaré con mis bienes. Consideraré a sus hijos como si fueran mis hermanos y, si desean
+                  aprender el arte médico, se lo enseñaré sin exigirles nada en pago. A mis hijos, a los hijos de mi
+                  maestro y a los que se obligaran con el juramento que manda la ley de la Medicina, y a nadie más, le
+                  enseñaré los preceptos, las lecciones y la práctica. Aplicaré mis tratamientos para beneficio de los
+                  enfermos, según mi capacidad y buen juicio, y me abstendré de hacerles daño o injusticia. A nadie,
+                  aunque me lo pidiera, daré un veneno ni a nadie le sugeriré que lo tome. Del mismo modo, nunca
+                  proporcionaré a mujer alguna un pesario abortivo. Viviré y ejerceré siempre mi arte en pureza y
+                  santidad. No practicaré la cirugía en los que sufren cáculos, antes bien dejaré esa operación a los que
+                  se dedican a ella. Siempre que entrare en una casa, lo haré para bien del enfermo. Me abstendré de toda
+                  mala acción o injusticia y, en particular, de tener relaciones eróticas con mujeres o con hombres, ya
+                  sean libres o esclavos. Guardaré silencio sobre lo que, en mi consulta o fuera de ella, vea u oiga, que
+                  se refiera a la vida de los hombres y que no deba ser divulgado. Mantendré en secreto todo lo que
+                  pudiera ser vergonzoso si lo supiera la gente. Si fuera fiel a este juramento y no lo violara, que se me
+                  conceda gozar de mi vida y de mi arte, y ser honrado para siempre entre los hombres. Si lo quebrantara y
+                  jurara en falso, que me suceda lo contrario.
+                  <span class="closebtn" tabindex="0" role="button">×</span>
+              </div>
+          </div>
+      </div>
+      <div id="textoDerecho" class="tooltip" tabindex="0" role="button">
+          ¡Aquí también!
+          <div class="tooltiptext animate__animated animate__fadeIn">
+              <div class="tooltip-content">
+                  Oh Dios, llena mi alma de amor por mi arte y por todas las criaturas. Que no admita que la sed de
+                  ganancia y el afán de gloria me influencien en el ejercicio de mi arte, porque los enemigos de la verdad
+                  y del amor de los hombres podrían fácilmente hacerme abusar y apartarme de hacer bien a tus hijos.
+  
+                  Sostén la fuerza de mi corazón para que esté siempre pronto a servir al pobre y al rico, al amigo y al
+                  enemigo, al bueno y al malo. Haz que no vea en el hombre más que al que sufre.
+  
+                  Que mi espíritu se mantenga claro en el lecho del enfermo, que no se distraiga por cualquier pensamiento
+                  extraño, para que tenga presente todo lo que la experiencia y la ciencia le enseñaron; porque grandes y
+                  sublimes son los progresos de la ciencia que tienen como finalidad conservar la salud y la vida de todas
+                  las criaturas.
+  
+                  Haz que mis pacientes tengan confianza en mí y en mi arte y que sigan mis consejos y prescripciones.
+  
+                  Aleja del lecho de mis pacientes a los charlatanes, al ejército de parientes que dan mil consejos y a
+                  aquéllos que saben siempre todo; porque es una injerencia peligrosa que, por vanidad, hace malograr las
+                  mejores intenciones y lleva muchas veces a la muerte.
+  
+                  Si los ignorantes me censuran y escarnecen, otórgame que el amor de mi arte, como una coraza, me torne
+                  invulnerable, para que pueda perseverar en la verdad sin atender al prestigio, al renombre y a la edad
+                  de mis detractores. Otórgame, Dios mío, la indulgencia y la paciencia necesaria al lado de los pacientes
+                  apasionados o groseros.
+  
+                  Haz que sea moderado en todo, pero insaciable en mi amor por la ciencia. Aparta de mí la idea de que lo
+                  puedo todo.
+  
+                  Dame la fuerza, la voluntad y la ocasión para ampliar cada vez más mis conocimientos.
+  
+                  Que pueda hay descubrir en mi saber cosas que ayer no sospechaba, porque el arte es grande, pero el
+                  espíritu del hombre puede avanzar siempre más adelante.
+  
+                  <span class="closebtn" tabindex="0" role="button">×</span>
+              </div>
+          </div>
+      </div>
+  </section>
 </body>
 
 </html>
