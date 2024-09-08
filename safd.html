@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formulario Oposiciones SAFD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./JS & CSS/indexsafd.css">
+    <script src="./JS & CSS/indexsafd.js" type="module"></script>
+</head>
+
+<body class="light-theme">
+    <header class="header animate__animated animate__fadeInDown">
+        <div class="background-container">
+            <div
+              id="bg1"
+              class="background-image"
+              style="
+                background-image: url('images/image1.png');
+                opacity: 1;
+                transform: scale(1);
+              "
+            ></div>
+            <div
+              id="bg2"
+              class="background-image"
+              style="
+                background-image: url('images/image2.png');
+                opacity: 0;
+                transform: scale(1);
+              "
+            ></div>
+            <div
+              id="bg3"
+              class="background-image"
+              style="
+                background-image: url('images/image3.png');
+                opacity: 0;
+                transform: scale(1);
+              "
+            ></div>
+            <div
+            id="bg4"
+            class="background-image"
+            style="
+              background-image: url('images/image4.png');
+              opacity: 0;
+              transform: scale(1);
+            "
+          ></div>
+          <div
+          id="bg5"
+          class="background-image"
+          style="
+            background-image: url('images/image5.png');
+            opacity: 0;
+            transform: scale(1);
+          "
+        ></div>
+        <div
+        id="bg6"
+        class="background-image"
+        style="
+          background-image: url('images/image6.png');
+          opacity: 0;
+          transform: scale(1);
+        "
+      ></div>
+      <div
+      id="bg7"
+      class="background-image"
+      style="
+        background-image: url('images/image7.png');
+        opacity: 0;
+        transform: scale(1);
+      "
+    ></div>
+        <div class="overlay"></div>
+        <div class="header-content">
+            <a class="logo-link" href="https://discord.gg/rRzRkRY8UQ">
+                <img class="logo-img" src="images/SAFD.png" alt="Logo">
+            </a>
+            <h1>San Andreas Fire Department</h1>
+            <button id="theme-toggle" class="theme-toggle">Cambiar a modo oscuro</button>
+            <nav style="position: absolute; top: 20px; left: 20px;">
+                <a href="index.html" style="text-decoration: underline; font-size: 18px; color: rgb(0, 140, 255);">&larr; Volver al menu principal</a>
+            </nav>            
+        </div>
+    </header>
+
+    <section id="info-section" class="info-section animate__animated animate__fadeIn">
+        <h2>Información sobre SAFD</h2>
+        <p>El San Andreas Fire Department, también conocido como SAFD, es una institución pública que forma parte del Gobierno de San Andreas, prestando servicio al Condado de Los Santos, el Condado de Blaine y todo el Estado de San Andreas. Nuestro equipo está compuesto por bomberos, rescatistas y personal especializado en la atención de emergencias, quienes se destacan por su profesionalismo, compromiso y dedicación a la protección de la vida y la seguridad de los ciudadanos.
+          Contamos con infraestructura avanzada y equipamiento de última generación, lo que nos permite responder de manera eficiente a incendios, desastres naturales y emergencias de diversa índole. Nos comprometemos al entrenamiento constante y al desarrollo de nuevas estrategias de intervención para estar siempre preparados ante cualquier situación.
+          El SAFD está dedicado a la mejora continua de sus operaciones, fomentando la colaboración con otras instituciones y promoviendo la conciencia sobre la prevención de incendios y la seguridad comunitaria. Nuestro compromiso es salvaguardar a la comunidad de San Andreas, trabajando con pasión y responsabilidad por el bienestar de todos.</p>    
+      </section>
+
+    <section class="scroll-section">
+        <a id="opositar-link" href="/oposicionescerradasSAMS.html" style="display: none;">Oposiciones cerradas</a>
+        <button id="opositar-button">Opositar</button>
+    </section>
+
+    <section id="form-section" class="form-section">
+        <h2>El formulario que le toca a usted es:</h2>
+        <div class="card animate__animated animate__fadeInUp" style="display:none;">
+            <button style="display: block; margin: 0 auto;" onclick="window.location.href='https://forms.gle/82xd1TuBk8wN4Qy48'">Formulario 1</button>
+        </div>
+        <div class="card animate__animated animate__fadeInUp" style="display:none;">
+            <button style="display: block; margin: 0 auto;" onclick="window.location.href='https://forms.gle/6NZSiLra6tKsHe2z8'">Formulario 2</button>
+        </div>
+        <div class="card animate__animated animate__fadeInUp" style="display:none;">
+            <button style="display: block; margin: 0 auto;" onclick="window.location.href='https://forms.gle/k25BjSKh6s1nP2Xg8'">Formulario 3</button>
+        </div>
+    </section>    
+</body>
+
+</html>
