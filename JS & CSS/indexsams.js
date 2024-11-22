@@ -51,7 +51,7 @@ document.getElementById('theme-toggle').addEventListener('click', function () {
 
 // Mostrar/ocultar sección de formulario al hacer clic en el botón "Opositar"
 document.getElementById('opositar-button').addEventListener('click', function (event) {
-  const oposicionesAbiertas = true; 
+  const oposicionesAbiertas = false; 
   const opositarLink = document.getElementById('opositar-link');
 
   if (!oposicionesAbiertas) {
