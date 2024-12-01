@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function toggleTheme() {
     const isLight = body.classList.contains('light-theme');
     
+    body.classList.add('theme-transition');
+
     if (isLight) {
       body.classList.remove('light-theme');
       body.classList.add('dark-theme');
@@ -50,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
       themeToggleEs.textContent = 'Cambiar a modo oscuro';
       themeToggleEn.textContent = 'Switch to Dark Mode';
     }
+
+    setTimeout(() => body.classList.remove('theme-transition'), 1000);
   }
 
   themeToggleEs.addEventListener('click', toggleTheme);

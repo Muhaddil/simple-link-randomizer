@@ -1,34 +1,38 @@
-/* Estilos generales */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+body, .header, .card {
   transition: background 0.3s, color 0.3s;
 }
 
 .light-theme {
-  background: #f4f4f4;
-  color: #333;
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
 }
 
 .dark-theme {
-  background: #333;
-  color: #f4f4f4;
+  --bg-color: #333;
+  --text-color: #f4f4f4;
+  --header-bg: #444;
+  --card-bg: #444;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Estilos del encabezado */
 .header {
   text-align: center;
   padding: 20px;
-  background: #ffffff;
+  background: var(--bg-color);
+  color: var(--text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, color 0.3s;
-  color: white;
+  transition: background-color 0.8s ease, color 0.8s ease;
   height: 300px;
 }
 
-.light-theme .header {
+/* .light-theme .header {
   background: #ffffff;
   color: #1b1b1b;
 }
@@ -36,7 +40,7 @@ body {
 .dark-theme .header {
   background: #444;
   color: #1b1b1b;
-}
+} */
 
 .logo-link {
   display: inline-block;
@@ -60,6 +64,15 @@ body {
   white-space: nowrap;
   text-align: center; 
   display: block; 
+}
+
+button, .theme-toggle {
+  outline: none;
+}
+
+button:focus, .theme-toggle:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
 }
 
 .theme-toggle:hover {
@@ -143,17 +156,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffffff;
+  background: var(--card-bg);
+  color: var(--text-color);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 300px;
+  width: calc(100% - 40px);
+  max-width: 300px;
   margin: 10px auto;
   text-align: center;
-  transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
-.light-theme .card {
+/* .light-theme .card {
   background: #ffffff;
   color: #333;
 }
@@ -161,10 +176,11 @@ body {
 .dark-theme .card {
   background: #444;
   color: #f4f4f4;
-}
+} */
 
 .card:hover {
   transform: translateY(-5px);
+  will-change: transform;
 }
 
 .opositar-button {
@@ -199,6 +215,7 @@ button:hover {
 } 
 
 /* Estilos para tooltips */
+
 #tooltipCentral {
   visibility: hidden;
   width: auto;
@@ -238,7 +255,7 @@ button:hover {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px; 
+  width: 50%; 
   background-color: #555;
   color: #fff;
   padding: 20px; 
@@ -279,6 +296,7 @@ button:hover {
 }
 .background-image {
   position: absolute;
+  will-change: transform, opacity;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -326,4 +344,8 @@ button:hover {
 .animate__fadeInDown,
 .animate__fadeInUp {
   animation-duration: 1s;
+}
+
+body.theme-transition {
+  transition: background-color 0.8s ease, color 0.8s ease;
 }

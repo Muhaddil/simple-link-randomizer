@@ -68,80 +68,6 @@ document.getElementById('opositar-button').addEventListener('click', function (e
   }
 });
 
-// Función para mostrar el tooltip
-function mostrarTooltip(tooltiptext) {
-  const tooltipCentral = document.getElementById('tooltipCentral');
-  tooltipCentral.innerHTML = tooltiptext.innerHTML;
-  tooltipCentral.style.visibility = 'visible';
-  tooltipCentral.style.opacity = 1;
-
-  Array.from(tooltipCentral.getElementsByClassName('closebtn')).forEach(function (element) {
-      element.addEventListener('click', function (event) {
-          event.stopPropagation();
-          ocultarTooltip();
-      });
-  });
-
-  document.body.classList.add('tooltip-active');
-}
-
-// Función para ocultar el tooltip
-function ocultarTooltip() {
-  const tooltipCentral = document.getElementById('tooltipCentral');
-  tooltipCentral.style.visibility = 'hidden';
-  tooltipCentral.style.opacity = 0;
-  document.body.classList.remove('tooltip-active');
-}
-
-document.body.addEventListener("mousemove", function (e) {
-  const x = e.clientX / window.innerWidth;
-  const textoIzquierdo = document.getElementById("textoIzquierdo");
-  const textoDerecho = document.getElementById("textoDerecho");
-  if (x < 0.45) {
-      textoIzquierdo.style.opacity = "1";
-      textoIzquierdo.style.transform = "translateX(0)";
-      textoDerecho.style.opacity = "0";
-      textoDerecho.style.transform = "translateX(100%)";
-  } else if (x > 0.55) {
-      textoIzquierdo.style.opacity = "0";
-      textoIzquierdo.style.transform = "translateX(-100%)";
-      textoDerecho.style.opacity = "1";
-      textoDerecho.style.transform = "translateX(0)";
-  } else {
-      textoIzquierdo.style.opacity = "0";
-      textoIzquierdo.style.transform = "translateX(-100%)";
-      textoDerecho.style.opacity = "0";
-      textoDerecho.style.transform = "translateX(100%)";
-  }
-});
-
-// Eventos del click para el texto izquierdo
-document.getElementById('textoIzquierdo').addEventListener('click', function (event) {
-  const tooltiptext = this.querySelector('.tooltiptext');
-  if (tooltiptext.style.visibility !== 'visible') {
-      mostrarTooltip(tooltiptext);
-  } else {
-      ocultarTooltip();
-  }
-});
-
-// Eventos del click para el texto derecho
-document.getElementById('textoDerecho').addEventListener('click', function (event) {
-  const tooltiptext = this.querySelector('.tooltiptext');
-  if (tooltiptext.style.visibility !== 'visible') {
-      mostrarTooltip(tooltiptext);
-  } else {
-      ocultarTooltip();
-  }
-});
-
-document.getElementById('textoIzquierdo').style.zIndex = 3;
-document.getElementById('textoDerecho').style.zIndex = 3;
-Array.from(document.getElementsByClassName('closebtn')).forEach(function (element) {
-  element.style.zIndex = 10;
-});
-
-
 const images = [
   document.getElementById("bg1"),
   document.getElementById("bg2"),
@@ -182,3 +108,49 @@ function shuffleArray(array) {
 
 setInterval(changeBackgroundImage, 5000); 
 changeBackgroundImage();
+
+// document.getElementById('language-toggle').addEventListener('click', function () {
+//   const elementsEs = document.querySelectorAll('[data-lang="es"]');
+//   const elementsEn = document.querySelectorAll('[data-lang="en"]');
+
+//   if (this.textContent === 'English') {
+//       this.textContent = 'Español';
+//       elementsEs.forEach(el => el.style.display = 'none');
+//       elementsEn.forEach(el => el.style.display = 'block');
+//   } else {
+//       this.textContent = 'English';
+//       elementsEs.forEach(el => el.style.display = 'block');
+//       elementsEn.forEach(el => el.style.display = 'none');
+//   }
+// });
+
+// // Al cargar la página, verificar la preferencia almacenada
+// document.addEventListener('DOMContentLoaded', () => {
+//   const savedLang = localStorage.getItem('language') || 'es';
+//   setLanguage(savedLang);
+// });
+
+// document.getElementById('language-toggle').addEventListener('click', function () {
+//   const currentLang = document.documentElement.lang;
+//   const newLang = currentLang === 'es' ? 'en' : 'es';
+//   setLanguage(newLang);
+// });
+
+// function setLanguage(lang) {
+//   const elementsEs = document.querySelectorAll('[data-lang="es"]');
+//   const elementsEn = document.querySelectorAll('[data-lang="en"]');
+//   const toggleBtn = document.getElementById('language-toggle');
+
+//   if (lang === 'en') {
+//       toggleBtn.textContent = 'Español';
+//       elementsEs.forEach(el => el.style.display = 'none');
+//       elementsEn.forEach(el => el.style.display = 'block');
+//   } else {
+//       toggleBtn.textContent = 'English';
+//       elementsEs.forEach(el => el.style.display = 'block');
+//       elementsEn.forEach(el => el.style.display = 'none');
+//   }
+
+//   document.documentElement.lang = lang;
+//   localStorage.setItem('language', lang);
+// }

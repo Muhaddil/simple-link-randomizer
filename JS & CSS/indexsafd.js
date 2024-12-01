@@ -19,6 +19,8 @@ window.onload = function () {
 // Cambiar tema
 document.addEventListener('DOMContentLoaded', function () {
   const body = document.body;
+  const themeToggleEs = document.getElementById('theme-toggle');
+  const themeToggleEn = document.getElementById('theme-toggle-en');
 
   let theme = localStorage.getItem('theme');
   
@@ -30,7 +32,33 @@ document.addEventListener('DOMContentLoaded', function () {
   body.classList.add(theme);
 
   const isLight = theme === 'light-theme';
-  document.getElementById('theme-toggle').textContent = isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro';
+  themeToggleEs.textContent = isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro';
+  themeToggleEn.textContent = isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+
+  function toggleTheme() {
+    const isLight = body.classList.contains('light-theme');
+    
+    body.classList.add('theme-transition');
+
+    if (isLight) {
+      body.classList.remove('light-theme');
+      body.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark-theme');
+      themeToggleEs.textContent = 'Cambiar a modo claro';
+      themeToggleEn.textContent = 'Switch to Light Mode';
+    } else {
+      body.classList.remove('dark-theme');
+      body.classList.add('light-theme');
+      localStorage.setItem('theme', 'light-theme');
+      themeToggleEs.textContent = 'Cambiar a modo oscuro';
+      themeToggleEn.textContent = 'Switch to Dark Mode';
+    }
+
+    setTimeout(() => body.classList.remove('theme-transition'), 1000);
+  }
+
+  themeToggleEs.addEventListener('click', toggleTheme);
+  themeToggleEn.addEventListener('click', toggleTheme);
 });
 
 document.getElementById('theme-toggle').addEventListener('click', function () {
@@ -183,3 +211,49 @@ function shuffleArray(array) {
 
 setInterval(changeBackgroundImage, 5000); 
 changeBackgroundImage();
+
+document.getElementById('language-toggle').addEventListener('click', function () {
+  const elementsEs = document.querySelectorAll('[data-lang="es"]');
+  const elementsEn = document.querySelectorAll('[data-lang="en"]');
+
+  if (this.textContent === 'English') {
+      this.textContent = 'Español';
+      elementsEs.forEach(el => el.style.display = 'none');
+      elementsEn.forEach(el => el.style.display = 'block');
+  } else {
+      this.textContent = 'English';
+      elementsEs.forEach(el => el.style.display = 'block');
+      elementsEn.forEach(el => el.style.display = 'none');
+  }
+});
+
+// Al cargar la página, verificar la preferencia almacenada
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('language') || 'es';
+  setLanguage(savedLang);
+});
+
+document.getElementById('language-toggle').addEventListener('click', function () {
+  const currentLang = document.documentElement.lang;
+  const newLang = currentLang === 'es' ? 'en' : 'es';
+  setLanguage(newLang);
+});
+
+function setLanguage(lang) {
+  const elementsEs = document.querySelectorAll('[data-lang="es"]');
+  const elementsEn = document.querySelectorAll('[data-lang="en"]');
+  const toggleBtn = document.getElementById('language-toggle');
+
+  if (lang === 'en') {
+      toggleBtn.textContent = 'Español';
+      elementsEs.forEach(el => el.style.display = 'none');
+      elementsEn.forEach(el => el.style.display = 'block');
+  } else {
+      toggleBtn.textContent = 'English';
+      elementsEs.forEach(el => el.style.display = 'block');
+      elementsEn.forEach(el => el.style.display = 'none');
+  }
+
+  document.documentElement.lang = lang;
+  localStorage.setItem('language', lang);
+}

@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 .light-theme {
@@ -23,7 +23,7 @@ body {
   padding: 20px;
   background: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.8s ease, color 0.8s ease;
   color: white;
   height: 300px;
 }
@@ -56,7 +56,7 @@ body {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 .theme-toggle:hover {
@@ -88,7 +88,7 @@ body {
   max-width: 400px;
   margin: 10px auto;
   text-align: center;
-  transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 .light-theme .card {
@@ -264,4 +264,8 @@ button:hover {
 .animate__fadeInDown,
 .animate__fadeInUp {
   animation-duration: 1s;
+}
+
+body.theme-transition {
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
