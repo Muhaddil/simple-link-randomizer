@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foto de la Semana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -17,7 +20,7 @@
             align-items: center;
             overflow: hidden;
             transition: background 0.3s ease-in-out;
-            background: radial-gradient(circle at 50% 50%, #121212, #1e1e1e);
+            background: radial-gradient(circle at 50% 50%, #000000, #1e1e1e);
         }
 
         header {
@@ -56,6 +59,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             opacity: 0;
             animation: fadeInSlider 1.5s ease-out forwards;
+            aspect-ratio: 16 / 9;
         }
 
         .slider {
@@ -74,12 +78,13 @@
         }
 
         .slide img {
-            width: auto;
+            width: 100%;
             height: auto;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 15px;
             opacity: 0;
             animation: fadeInImage 2s ease-out forwards;
+            aspect-ratio: 16 / 9;
         }
 
         .slide h2 {
@@ -101,7 +106,8 @@
             transform: translateY(-50%);
         }
 
-        .prev, .next {
+        .prev,
+        .next {
             background-color: rgba(0, 0, 0, 0.6);
             border: none;
             padding: 15px;
@@ -114,7 +120,8 @@
             animation: fadeInButtons 1.5s ease-out forwards;
         }
 
-        .prev:hover, .next:hover {
+        .prev:hover,
+        .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
             transform: scale(1.1);
         }
@@ -130,43 +137,89 @@
 
         /* Animaciones */
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInSlider {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInSlide {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInImage {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes slideInFromBottom {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInButtons {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInLogo {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Media Queries para dispositivos móviles */
@@ -187,7 +240,7 @@
 
             .slider-container {
                 width: 90%;
-                height: 40vh; /* Ajustado para pantallas pequeñas */
+                height: 40vh;
             }
 
             .slide h2 {
@@ -196,59 +249,65 @@
                 left: 15px;
             }
 
-            .prev, .next {
+            .prev,
+            .next {
                 font-size: 1.5rem;
                 padding: 10px;
             }
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <img src="images/SAEDLogo.png" alt="Logo" class="logo">
-    <h1>Foto de la Semana</h1>
-</header>
+    <header>
+        <nav style="position: absolute; top: 20px; left: 20px;">
+            <a href="index.html" style="text-decoration: underline; font-size: 18px; color: rgb(0, 140, 255);">&larr; Volver al menu principal</a>
+        </nav>
+        <img src="images/SAEDLogo.png" alt="Logo" class="logo">
+        <h1>Foto de la Semana</h1>
+    </header>
 
-<div class="slider-container">
-    <div class="slider">
-        <div class="slide">
-            <img src="https://via.placeholder.com/1200x700/FF5733/333333?text=Foto+Semana+1" alt="Foto de la Semana 1">
-            <h2>Lorem Ipsum</h2>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/FotoSemana1.jpeg" alt="Foto de la Semana 1">
+                <h2>Un dia más</h2>
+            </div>
+            <!-- Copia más imágenes aquí -->
         </div>
-        <!-- Copia más imágenes aquí -->
+
+        <div class="navigation">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
     </div>
 
-    <div class="navigation">
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-    </div>
-</div>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const body = document.querySelector('body');
 
-<script>
-    document.addEventListener('mousemove', function (e) {
-        const body = document.querySelector('body');
-        
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
 
-        body.style.transition = 'background 0.3s ease-in-out';
+            body.style.transition = 'background 0.3s ease-in-out';
 
-        const colorStart = '#121212';
-        const colorEnd = '#1e1e1e';
+            const colorStart = '#121212';
+            const colorEnd = '#1e1e1e';
 
-        body.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, ${colorStart}, ${colorEnd})`;
-    });
+            body.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, ${colorStart}, ${colorEnd})`;
+        });
 
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
 
-    function moveSlide(step) {
-        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-        document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-</script>
+        function moveSlide(step) {
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
 
 </body>
+
 </html>
