@@ -1,20 +1,3 @@
-// window.onload = function () {
-//   const cards = document.querySelectorAll(".card");
-//   let lastCardIndex = localStorage.getItem("lastCard");
-
-//   if (lastCardIndex === null) {
-//       lastCardIndex = Math.floor(Math.random() * cards.length);
-//   } else {
-//       lastCardIndex = Number(lastCardIndex);
-//   }
-
-//   localStorage.setItem("lastCard", lastCardIndex);
-//   cards[lastCardIndex].style.display = "block";
-
-//   const formSection = document.getElementById('form-section');
-//   formSection.style.display = 'none';
-// };
-
 // Cambiar tema
 document.addEventListener('DOMContentLoaded', function () {
   const body = document.body;
@@ -59,25 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
   themeToggleEs.addEventListener('click', toggleTheme);
   themeToggleEn.addEventListener('click', toggleTheme);
 });
-
-// Mostrar/ocultar sección de formulario al hacer clic en el botón "Opositar"
-// document.getElementById('opositar-button').addEventListener('click', function (event) {
-//   const oposicionesAbiertas = true; 
-//   const opositarLink = document.getElementById('opositar-link');
-
-//   if (!oposicionesAbiertas) {
-//     event.preventDefault(); 
-//     opositarLink.click(); 
-//   } else {
-//     const formSection = document.getElementById('form-section');
-//     formSection.style.display = formSection.style.display === 'none' ? 'block' : 'none';
-//     if (formSection.style.display === 'block') {
-//         formSection.scrollIntoView({ behavior: 'smooth' });
-//     }
-//     const isHidden = formSection.style.display === 'none';
-//     this.setAttribute('aria-expanded', !isHidden);
-//   }
-// });
 
 // Función para mostrar el tooltip
 function mostrarTooltip(tooltiptext) {

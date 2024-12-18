@@ -4,16 +4,18 @@ body, .header, .card {
 
 .light-theme {
   --bg-color: #f4f4f4;
+  --bg-color-card: #ffffff;
   --text-color: #333;
   --header-bg: #ffffff;
-  --card-bg: #ffffff;
+  --card-bg: rgba(57, 44, 44, 0.763);
 }
 
 .dark-theme {
   --bg-color: #333;
+  --bg-color-card: #f4f4f4;
   --text-color: #f4f4f4;
   --header-bg: #444;
-  --card-bg: #444;
+  --card-bg: radial-gradient(rgb(53, 51, 51), rgb(0, 0, 0));
 }
 
 body {
@@ -31,16 +33,6 @@ body {
   transition: background-color 0.8s ease, color 0.8s ease;
   height: 300px;
 }
-
-/* .light-theme .header {
-  background: #ffffff;
-  color: #1b1b1b;
-}
-
-.dark-theme .header {
-  background: #444;
-  color: #1b1b1b;
-} */
 
 .logo-link {
   display: inline-block;
@@ -70,11 +62,6 @@ button, .theme-toggle {
   outline: none;
 }
 
-/* button:focus, .theme-toggle:focus {
-  outline: 2px solid #0056b3;
-  outline-offset: 2px;
-} */
-
 .theme-toggle:hover {
   background: #0056b3;
   outline: 2px solid #0056b3;
@@ -95,12 +82,7 @@ button, .theme-toggle {
 }
 
 /* Secciones de información */
-/* .info-section,
-.scroll-section,
-.form-section {
-  padding: 20px;
-  text-align: center;
-} */
+
 .info-section,
 .scroll-section,
 .form-section {
@@ -115,40 +97,6 @@ button, .theme-toggle {
   flex-wrap: wrap; 
 }
 
-/* Estilos para las tarjetas de formulario */
-/* #form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 80%;
-  max-width: 400px;
-  margin: 10px auto;
-  text-align: center;
-  transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
-}
-
-.light-theme .card {
-  background: #ffffff;
-  color: #333;
-}
-
-.dark-theme .card {
-  background: #444;
-  color: #f4f4f4;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-*/
 
 .faction-logo {
   width: 100px; 
@@ -171,16 +119,6 @@ button, .theme-toggle {
   text-align: center;
   transition: background-color 0.8s ease, color 0.8s ease;
 }
-
-/* .light-theme .card {
-  background: #ffffff;
-  color: #333;
-}
-
-.dark-theme .card {
-  background: #444;
-  color: #f4f4f4;
-} */
 
 .card:hover {
   transform: translateY(-5px);
@@ -352,5 +290,96 @@ button:hover {
 }
 
 body.theme-transition {
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+/* Sección de bloques de información */
+.form-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.info-block {
+  width: 100%;
+  max-width: 350px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.info-block:hover {
+  transform: scale(1.05);
+}
+
+/* Contenido de cada bloque */
+.info-block-content {
+  display: block;
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.info-block-content:hover {
+  /* background: repeating-linear-gradient(
+    190deg,
+    rgba(30, 30, 30, 0.8) 40px,
+    rgba(50, 50, 70, 0.8) 80px,
+    rgba(70, 70, 90, 0.8) 120px,
+    rgba(10, 10, 10, 0.8) 160px,
+    rgba(60, 60, 80, 0.8) 200px,
+    rgba(50, 50, 50, 0.8) 240px,
+    rgba(80, 40, 60, 0.8) 280px,
+    rgba(30, 30, 30, 0.8) 300px
+  ),
+  repeating-linear-gradient(
+    -190deg,
+    rgba(30, 30, 30, 0.8) 30px,
+    rgba(50, 50, 70, 0.8) 60px,
+    rgba(70, 70, 90, 0.8) 90px,
+    rgba(10, 10, 10, 0.8) 120px,
+    rgba(60, 60, 80, 0.8) 150px,
+    rgba(50, 50, 50, 0.8) 180px,
+    rgba(80, 40, 60, 0.8) 210px,
+    rgba(30, 30, 30, 0.8) 230px
+  ),
+  repeating-linear-gradient(
+    23deg,
+    rgba(30, 30, 30, 0.8) 50px,
+    rgba(50, 50, 70, 0.8) 100px,
+    rgba(70, 70, 90, 0.8) 150px,
+    rgba(10, 10, 10, 0.8) 200px,
+    rgba(60, 60, 80, 0.8) 250px,
+    rgba(50, 50, 50, 0.8) 300px,
+    rgba(80, 40, 60, 0.8) 350px,
+    rgba(30, 30, 30, 0.8) 370px
+  ); */
+  transform: scale(1.1);
+  /* text-decoration: rgb(0, 0, 0) wavy underline; */
+}
+
+/* Iconos */
+.block-icon {
+  width: 50%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Estilo de los títulos y párrafos */
+.info-block h3 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: var(--bg-color-card);
+}
+
+.info-block p {
+  font-size: 1.2em;
+  color: var(--bg-color-card);
   transition: background-color 0.8s ease, color 0.8s ease;
 }
